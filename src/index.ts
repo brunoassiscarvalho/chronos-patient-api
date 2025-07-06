@@ -12,15 +12,15 @@ import startFirebase from "./core/firebase";
 dotenv.config();
 
 class App {
-  private app: Application;
+  private readonly app: Application;
 
-  private PORT: string = process.env.PORT || "3005";
+  private readonly PORT: string = process.env.PORT ?? "3005";
 
-  private routes: Routes = new Routes();
+  private readonly routes: Routes = new Routes();
 
-  private configurations = new Configurations();
+  private readonly configurations = new Configurations();
 
-  private corsOptions = {
+  private readonly corsOptions = {
     origin: this.configurations.CLIENTS,
     optionsSuccessStatus: 200,
   };
@@ -46,7 +46,7 @@ class App {
   }
 
   private startServer(app: Application, PORT: string): void {
-    app.listen(process.env.PORT || "3005", () => {
+    app.listen(PORT, () => {
       logger.info(`Express server listening on port ${PORT}`);
     });
   }

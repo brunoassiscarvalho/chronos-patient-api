@@ -8,12 +8,12 @@ import { ProfessionalApi } from "./professional/professional.api";
 import { VideoApi } from "./video/video.api";
 
 export class Routes {
-  private loginApi: LoginApi;
-  private infoApi: InfoApi;
-  private patientApi: PatientApi;
-  private professionalApi: ProfessionalApi;
-  private appointmentApi: AppointmentApi;
-  private videoApi: VideoApi;
+  private readonly loginApi: LoginApi;
+  private readonly infoApi: InfoApi;
+  private readonly patientApi: PatientApi;
+  private readonly professionalApi: ProfessionalApi;
+  private readonly appointmentApi: AppointmentApi;
+  private readonly videoApi: VideoApi;
 
   constructor() {
     this.loginApi = new LoginApi();

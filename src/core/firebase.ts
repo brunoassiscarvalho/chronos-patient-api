@@ -7,7 +7,6 @@ export default function startFirebase(configurations: Configurations): void {
     credential: admin.credential.cert(
       configurations.FIREBASE_ACCOUNT as ServiceAccount
     ),
-    databaseURL: configurations.FIREBASE.databaseURL,
   });
 
   initializeApp(configurations.FIREBASE);

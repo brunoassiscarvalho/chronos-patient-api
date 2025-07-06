@@ -3,7 +3,7 @@ import { isAuthenticated } from "../../middleware/authenticated";
 import PatientController from "./patient.controller";
 
 export class PatientApi {
-  private defaultPath = "/patient";
+  private readonly defaultPath = "/patient";
 
   public patientController: PatientController = new PatientController();
 

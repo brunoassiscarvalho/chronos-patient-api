@@ -92,7 +92,7 @@ export default class UsesrController {
       await signInWithEmailAndPassword(getAuth(), email, password);
       const patient: IPatient = await Patient.findOne({ email }).lean();
       const link: string = await auth().generateEmailVerificationLink(email, {
-        url: req.get("origin") || "http://localhost:3000",
+        url: req.get("origin") ?? "http://localhost:3000",
       });
       await this.mailController.sendVerificationEmail({
         userEmail: email,
@@ -104,7 +104,6 @@ export default class UsesrController {
       throw new BusinessException(
         "Não foi possível enviar o email de confirmação",
         "PATIENT002",
-
         error
       );
     }
