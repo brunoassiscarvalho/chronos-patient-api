@@ -61,7 +61,7 @@ export default class AppointmentController {
   public async patchPatientAppointment(
     req: Request,
     res: Response
-  ): Promise<IAppointment> {
+  ): Promise<IAppointment | null> {
     const { _id } = req.body;
     const { name, picture, userId, email } = res.locals;
     try {
@@ -69,7 +69,7 @@ export default class AppointmentController {
         { _id, patient: { $exists: false } },
         { patient: { name, picture, _id: userId, email } },
         { new: true }
-      ).lean();
+      );
       if (!appointment)
         throw new BusinessException(
           "Não foi possivel agendar seu horário",
