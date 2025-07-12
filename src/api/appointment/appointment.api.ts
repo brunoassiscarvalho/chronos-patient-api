@@ -3,7 +3,7 @@ import { isAuthenticated } from "../../middleware/authenticated";
 import AppointmentController from "./appointment.controller";
 
 export class AppointmentApi {
-  private defaultPath = "/appointment";
+  private readonly defaultPath = "/appointment";
 
   public appointmentController: AppointmentController =
     new AppointmentController();

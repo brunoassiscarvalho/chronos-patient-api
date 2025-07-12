@@ -23,12 +23,12 @@ export default class LoginController {
         err
       );
     }
-    if (!userLogged.user?.emailVerified) {
-      throw new UnauthorizedException(
-        "O email ainda não foi validado",
-        "LOGIN002"
-      );
-    }
+    // if (!userLogged.user?.emailVerified) {
+    //   throw new UnauthorizedException(
+    //     "O email ainda não foi validado",
+    //     "LOGIN002"
+    //   );
+    // }
 
     let patient: IPatient | null;
     try {

@@ -21,6 +21,7 @@ export default class AppointmentController {
         "patient._id": userId,
       }).lean();
     } catch (error) {
+      console.error("Error fetching patient appointments:", error);
       throw new BusinessException(
         "Não foi possível encontrar os agendamentos",
         "APPTMN003"
