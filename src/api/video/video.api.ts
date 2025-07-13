@@ -1,14 +1,16 @@
-import { Request, Response, NextFunction, Application } from "express";
-import VideoController from "./video.controller";
+import { Request, Response, NextFunction, Application } from 'express';
+import { isAuthenticated } from '../../middleware/authenticated';
+import VideoController from './video.controller';
 
 export class VideoApi {
-  private defaultPath = "/video";
+  private defaultPath = '/video';
 
   public VideoController: VideoController = new VideoController();
 
   public routes(app: Application): void {
     app.get(
-      this.defaultPath + "/:appointmentId",
+      this.defaultPath + '/:appointmentId',
+      isAuthenticated,
       async (req: Request, res: Response, next: NextFunction) => {
         this.VideoController.getVideoToken(req, res)
           .then((result) => {
@@ -16,7 +18,7 @@ export class VideoApi {
             next();
           })
           .catch((e) => next(e));
-      }
+      },
     );
   }
 }

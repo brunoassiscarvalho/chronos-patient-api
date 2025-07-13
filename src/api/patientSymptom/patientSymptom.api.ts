@@ -1,20 +1,20 @@
 import { Request, Response, NextFunction, Application } from 'express';
 import { isAuthenticated } from '../../middleware/authenticated';
-import ProfessionalController from './professional.controller';
+import PatientSymptomController from './patientSymptom.controller';
 
-export class ProfessionalApi {
-  private defaultPath = '/professional';
+export class PatientSymptomApi {
+  private defaultPath = '/patient-symptom';
 
-  public professionalController: ProfessionalController =
-    new ProfessionalController();
+  public patientSymptomController: PatientSymptomController =
+    new PatientSymptomController();
 
   public routes(app: Application): void {
     app.get(
       this.defaultPath,
       isAuthenticated,
       async (req: Request, res: Response, next: NextFunction) => {
-        this.professionalController
-          .getProfessionals()
+        this.patientSymptomController
+          .getPatientSymptoms(res)
           .then((result) => {
             res.json(result);
             next();
@@ -23,12 +23,12 @@ export class ProfessionalApi {
       },
     );
 
-    app.get(
-      this.defaultPath + '/:professionalId',
+    app.post(
+      this.defaultPath,
       isAuthenticated,
       async (req: Request, res: Response, next: NextFunction) => {
-        this.professionalController
-          .getProfessional(req)
+        this.patientSymptomController
+          .createPatientSymptom(req, res)
           .then((result) => {
             res.json(result);
             next();

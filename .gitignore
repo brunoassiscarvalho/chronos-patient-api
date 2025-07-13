@@ -106,8 +106,12 @@ dist
 .env.development.local
 
 
-package-lock.json
+# package-lock.json
 
 
 firebase.key.json
 .vscode
+build
+
+*.env
+.env.*

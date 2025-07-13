@@ -1,7 +1,7 @@
-import { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction } from 'express';
 
 export function isAuthorized(opts: {
-  hasRole: Array<"admin" | "manager" | "user">;
+  hasRole: Array<'admin' | 'manager' | 'user'>;
   allowSameUser?: boolean;
 }) {
   return (req: Request, res: Response, next: NextFunction): any => {

@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install -g typescript
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - tsc
+artifacts:
+  base-directory: '.'
+  files:
+    - '**/*'

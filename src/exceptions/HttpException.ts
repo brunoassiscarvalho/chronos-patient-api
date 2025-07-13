@@ -7,7 +7,7 @@ class HttpException extends Error {
     status: number,
     message: string,
     internalCode: string,
-    info?: any
+    info?: any,
   ) {
     super(message);
     this.status = status;

@@ -1,8 +1,8 @@
-import { Request, Response, NextFunction, Application } from "express";
-import LoginController from "./login.controller";
+import { Request, Response, NextFunction, Application } from 'express';
+import LoginController from './login.controller';
 
 export class LoginApi {
-  private readonly defaultPath = "/login";
+  private defaultPath = '/login';
 
   public authController: LoginController = new LoginController();
 
@@ -10,14 +10,18 @@ export class LoginApi {
     app.post(
       this.defaultPath,
       async (req: Request, res: Response, next: NextFunction) => {
-        this.authController
-          .login(req)
-          .then((result) => {
-            res.json(result);
-            next();
-          })
-          .catch((e) => next(e));
-      }
+        try {
+          this.authController
+            .login(req)
+            .then((result) => {
+              res.json(result);
+              next();
+            })
+            .catch((e) => next(e));
+        } catch (error) {
+          next(error);
+        }
+      },
     );
   }
 }

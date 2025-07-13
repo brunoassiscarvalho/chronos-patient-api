@@ -1,6 +1,6 @@
-import { logger } from "../logger/winston";
-import { connect } from "mongoose";
-import Configurations from "./configurations";
+import { logger } from '../logger/winston';
+import { connect } from 'mongoose';
+import Configurations from './configurations';
 
 export default function mongoStart(configurations: Configurations): void {
   connect(configurations.MONGO, {
@@ -10,7 +10,7 @@ export default function mongoStart(configurations: Configurations): void {
     socketTimeoutMS: 45000, // Close sockets after 45 seconds of inactivity
   })
     .then(() => {
-      logger.info("Banco de dados inciado");
+      logger.info('Banco de dados iniciado');
     })
-    .catch((error) => logger.error("Erro ao iniciar o BD", error));
+    .catch((error) => logger.error('Erro ao iniciar o BD', error));
 }

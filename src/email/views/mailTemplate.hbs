@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{userName}}, {{userMessage}}</title>
+  <style>
+    input[type=button],
+    input[type=submit],
+    input[type=reset] {
+      background-color: #1F88E5;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      padding: 10px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    .card {
+      border-width: 1px;
+      border-style: solid;
+      border-color: #E0E0E0;
+      border-radius: 3px;
+      padding: 16px;
+      max-width: 512px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title {
+      color: #202124;
+      width: 100%;
+    }
+
+    .img {
+      max-width: 490px;
+    }
+
+    ul {
+      color: #202124;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <img src="{{logoUrl}}" class="img">
+    <div class="title">
+      <h2> {{userName}}, {{userMessage}}</h2>
+    </div>
+    <strong>{{primaryMessage}}</strong>
+
+    {{#if secondaryMessage}}   <strong>{{secondaryMessage}}</strong>{{/if}}
+    {{#if appointment}} 
+    <div>
+        {{#if appointment.professional}}
+        <div>  
+          <br> <br>         
+          <div> {{appointment.professional.position }}</div>
+          <div> {{appointment.professional.name }}</div>
+        </div>
+        {{/if}}
+          
+     
+        {{#if appointment.patient}}
+        <div>
+          <br> <br>
+          <div> Paciente: </div>
+          <div> {{appointment.patient.name }}</div>
+          <div> {{appointment.patient.email }}</div>
+        </div>
+        {{/if}}
+        <br> <br>
+        <div> {{appointment.day }}</div>
+        <div> {{appointment.startTime }}</div>
+        <div> {{appointment.endTime }}</div>
+    </div>
+    <br> <br>
+    <div>Três passos para um melhor atendimento:</div>
+    <ul>
+      <li>1 - Busque um lugar silencioso</li>
+      <li>2 - Com uma boa iluminação</li>
+      <li>3 - Entre na plataforma com pelo menos 5 minutos de antecedência</li>
+    </ul>
+    {{/if}}
+    <div>    
+    {{#if link}}  <a href="{{link}}">Confirmar</a> {{/if}}
+      </ul>
+      
+      <br> <br>     
+      <br> <br>
+      <div style="color: #757575; margin-left: auto;  margin-right: auto; text-align: center;">
+        <small>⚡ Email gerado automáticamente, favor não responder ⚡</small> <br>
+      </div>
+    </div>
+</body>
+
+</html>

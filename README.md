@@ -1,6 +1,6 @@
-# chronos-validation-api
+# safe-cv-validation-api
 
-Api de serviços chronos
+Api de serviços safe-cv
 
 # requisitos
 
@@ -14,7 +14,7 @@ Criar um arquivo .env na raiz com o seguinte conteudo, prrenchendo os dados vazi
 
 DATA_MODE=!adsfadsfkljfe324
 CLIENTS=http://localhost:3001
-DB_URI=mongodb://localhost:27017/chronos
+DB_URI=mongodb://localhost:27017/safe-cv
 PORT=3006
 MAIL_USER=
 MAIL_PASS=
